@@ -2,120 +2,204 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>null.trinchek</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
+    /* Анимированный фон с плавным градиентом */
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
     body {
       margin: 0;
       padding: 0;
-      background: #0d0d0d;
-      color: #00ffcc;
       font-family: 'Share Tech Mono', monospace;
+      background: linear-gradient(270deg, #00ffcc, #004040, #001f1f, #00ffcc);
+      background-size: 800% 800%;
+      animation: gradientBG 30s ease infinite;
+      color: #00ffcc;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 30px;
+      min-height: 100vh;
+    }
+
+    header {
+      width: 100%;
+      background: rgba(0, 255, 204, 0.15);
+      box-shadow: 0 2px 5px rgba(0,255,204,0.4);
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(5px);
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: #00ffcc;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #00ffcc;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00ffff;
+    }
+
+    nav a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    main {
+      max-width: 700px;
+      width: 100%;
+      padding: 30px 15px;
+      margin-top: 30px;
+      background: rgba(0,0,0,0.4);
+      border-left: 3px solid #00ffcc;
+      box-shadow: 0 0 15px #00ffcca0;
+      border-radius: 6px;
     }
 
     h1 {
-      font-size: 2em;
-      margin-bottom: 0.2em;
+      font-size: 2.4rem;
+      margin-bottom: 0.3em;
+      text-align: center;
+      user-select: none;
+      text-shadow: 0 0 8px #00ffcc;
     }
 
     .section {
-      max-width: 600px;
-      width: 100%;
       margin-bottom: 2em;
-      border-left: 2px solid #00ffcc;
-      padding-left: 1em;
     }
 
     .label {
-      color: #888;
-      font-size: 0.9em;
+      color: #66ffee;
+      font-size: 0.95rem;
       margin-bottom: 0.3em;
+    }
+
+    ul {
+      list-style-type: '▸ ';
+      padding-left: 1.2em;
+      line-height: 1.5;
     }
 
     a {
       color: #00ffff;
-      text-decoration: none;
     }
 
     a:hover {
       text-decoration: underline;
     }
 
-    .heading {
-      font-weight: bold;
-      color: #ffffff;
-      margin-top: 1em;
-    }
-
-    ul {
-      list-style-type: '▸ ';
-      padding-left: 1em;
-    }
-
     .note {
-      font-size: 0.8em;
+      font-size: 0.8rem;
       color: #aaa;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      main {
+        padding: 20px 10px;
+        margin-top: 20px;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>⛧ null.trinchek ⛧</h1>
-  <div class="section">
-    <div class="label">Если я не отвечаю — пиши <a href="https://t.me/Flutterbea">@Flutterbea</a></div>
-    <p>Создаю смысл и ищу красоту в хаосе.</p>
-  </div>
+  <header>
+    <nav>
+      <a href="#interests">Interests</a>
+      <a href="#fandoms">Fandoms</a>
+      <a href="#friends">Friends</a>
+      <a href="#channels">Channels</a>
+    </nav>
+  </header>
 
-  <div class="section">
-    <div class="heading">✦ Интересы</div>
-    <ul>
-      <li>Геймдев, мобильные приложения</li>
-      <li>Эстетика одиночества, размышления</li>
-      <li>Музыка, видеомонтаж, креатив</li>
-      <li>Литература, философия, андеграунд</li>
-      <li>Альтернативные сети, хакинг</li>
-    </ul>
-  </div>
+  <main>
+    <h1>⛧ null.trinchek ⛧</h1>
 
-  <div class="section">
-    <div class="heading">✦ Фандомы</div>
-    <ul>
-      <li><strong>Игры:</strong> DDLC, Undertale</li>
-      <li><strong>Аниме:</strong> Токийский гуль, Клинок, Тетрадь смерти, Класс превосходства</li>
-      <li><strong>Фильмы / Сериалы:</strong> Бойцовский клуб, Мистер Робот</li>
-      <li><strong>Музыка:</strong> Свидетельство о Смерти, Молчат Дома</li>
-    </ul>
-  </div>
+    <div class="section" id="intro">
+      <div class="label">Если я не отвечаю — пиши <a href="https://t.me/Flutterbea">@Flutterbea</a></div>
+      <p>Создаю смысл и ищу красоту в хаосе.</p>
+    </div>
 
-  <div class="section">
-    <div class="heading">✦ Друзья</div>
-    <ul>
-      <li><a href="https://t.me/Flutterbea">@Flutterbea</a></li>
-      <li><a href="https://t.me/otravilsia_cheburekom">@otravilsia_cheburekom</a></li>
-    </ul>
-  </div>
+    <div class="section" id="interests">
+      <h2>✦ Интересы</h2>
+      <ul>
+        <li>Геймдев, мобильные приложения</li>
+        <li>Эстетика одиночества, размышления</li>
+        <li>Музыка, видеомонтаж, креатив</li>
+        <li>Литература, философия, андеграунд</li>
+        <li>Альтернативные сети, хакинг</li>
+      </ul>
+    </div>
 
-  <div class="section">
-    <div class="heading">✦ Деф</div>
-    <ul>
-      <li><a href="https://t.me/xeodxeo">@xeodxeo</a></li>
-    </ul>
-  </div>
+    <div class="section" id="fandoms">
+      <h2>✦ Фандомы</h2>
+      <ul>
+        <li><strong>Игры:</strong> DDLC, Undertale</li>
+        <li><strong>Аниме:</strong> Токийский гуль, Клинок, Тетрадь смерти, Класс превосходства</li>
+        <li><strong>Фильмы / Сериалы:</strong> Бойцовский клуб, Мистер Робот</li>
+        <li><strong>Музыка:</strong> Свидетельство о Смерти, Молчат Дома</li>
+      </ul>
+    </div>
 
-  <div class="section">
-    <div class="heading">✦ Каналы</div>
-    <ul>
-      <li><a href="https://t.me/trinlife">@trinlife</a> — мысли и уют</li>
-      <li><a href="https://t.me/philosophy0q">@philosophy0q</a> — философия и суть</li>
-      <li><a href="https://t.me/philosomusic">@philosomusic</a> — музыка и состояние</li>
-    </ul>
-  </div>
+    <div class="section" id="friends">
+      <h2>✦ Друзья</h2>
+      <ul>
+        <li><a href="https://t.me/Flutterbea">@Flutterbea</a></li>
+        <li><a href="https://t.me/otravilsia_cheburekom">@otravilsia_cheburekom</a></li>
+      </ul>
+    </div>
 
-  <div class="note">Сайт сделан с хаосом и эстетикой.</div>
+    <div class="section" id="channels">
+      <h2>✦ Каналы</h2>
+      <ul>
+        <li><a href="https://t.me/trinlife">@trinlife</a> — мысли и уют</li>
+        <li><a href="https://t.me/philosophy0q">@philosophy0q</a> — философия и суть</li>
+        <li><a href="https://t.me/philosomusic">@philosomusic</a> — музыка и состояние</li>
+      </ul>
+    </div>
+
+    <div class="note">Сайт сделан с хаосом и эстетикой.</div>
+  </main>
 </body>
 </html>
