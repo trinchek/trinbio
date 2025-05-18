@@ -1,0 +1,66 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  animation: navFadeIn 0.6s ease forwards;
+}
+
+nav a {
+  color: #66ffff;
+  text-decoration: none;
+  font-weight: normal;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffffff;
+}
+
+main {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: auto;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+h1 {
+  text-align: center;
+  color: #66ffff;
+}
+
+.section {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 25px;
+  margin: 20px 0;
+  box-shadow: 0 0 10px rgba(102, 255, 255, 0.2);
+}
+
+a {
+  color: #66ffff;
+}
+
+@keyframes navFadeIn {
+  from {opacity: 0; transform: translateY(-10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeInUp {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
