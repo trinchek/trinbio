@@ -12,7 +12,8 @@ nav {
   -webkit-backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
   padding: 15px;
   position: sticky;
   top: 0;
@@ -24,6 +25,7 @@ nav a {
   color: #66ffff;
   text-decoration: none;
   font-weight: normal;
+  font-size: 16px;
   transition: color 0.3s ease;
 }
 
@@ -55,6 +57,32 @@ a {
   color: #66ffff;
 }
 
+/* 🔧 Адаптивные стили */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  nav a {
+    font-size: 18px;
+  }
+
+  main {
+    padding: 30px 15px;
+  }
+
+  .section {
+    padding: 20px;
+  }
+
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Анимации */
 @keyframes navFadeIn {
   from {opacity: 0; transform: translateY(-10px);}
   to {opacity: 1; transform: translateY(0);}
