@@ -1,94 +1,161 @@
+/* Анимация градиента на фоне */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-  color: #fff;
+  margin: 0;
+  padding: 0;
+  font-family: 'Share Tech Mono', monospace;
+  background: linear-gradient(-45deg, #00ffcc, #005f5f, #00aaff, #003366);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: #00ffcc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px; /* отступ под меню */
+}
+
+/* Верхнее меню */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  backdrop-filter: blur(12px);
+  background: rgba(10, 10, 10, 0.5);
+  border-bottom: 1px solid rgba(0, 255, 204, 0.3);
+  display: flex;
+  justify-content: center;
+  padding: 1em 0;
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeIn 1.5s forwards;
+}
+
+/* Анимация появления меню */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2em;
   margin: 0;
   padding: 0;
 }
 
-nav {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  padding: 15px;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  animation: navFadeIn 0.6s ease forwards;
+nav ul li {
+  font-weight: 700;
+  font-size: 1.1em;
 }
 
-nav a {
-  color: #66ffff;
+nav ul li a {
+  color: #00ffcc;
   text-decoration: none;
-  font-weight: normal;
-  font-size: 16px;
+  position: relative;
+  padding: 0.2em 0;
   transition: color 0.3s ease;
 }
 
-nav a:hover {
-  color: #ffffff;
+/* Подчёркивание при наведении */
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #00ffcc;
+  transition: width 0.3s ease;
 }
 
-main {
-  padding: 40px 20px;
-  max-width: 800px;
-  margin: auto;
-  animation: fadeInUp 0.5s ease forwards;
+nav ul li a:hover,
+nav ul li a:focus {
+  color: #00ffff;
 }
 
-h1 {
-  text-align: center;
-  color: #66ffff;
+nav ul li a:hover::after,
+nav ul li a:focus::after {
+  width: 100%;
 }
 
+/* Секции */
 .section {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  padding: 25px;
-  margin: 20px 0;
-  box-shadow: 0 0 10px rgba(102, 255, 255, 0.2);
+  max-width: 600px;
+  width: 100%;
+  margin-bottom: 2em;
+  border-left: 2px solid #00ffcc;
+  padding-left: 1em;
+}
+
+.label {
+  color: #888;
+  font-size: 0.9em;
+  margin-bottom: 0.3em;
+}
+
+.heading {
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: 1em;
+}
+
+ul {
+  list-style-type: '▸ ';
+  padding-left: 1em;
 }
 
 a {
-  color: #66ffff;
+  color: #00ffff;
+  text-decoration: none;
 }
 
-/* 🔧 Адаптивные стили */
-@media (max-width: 600px) {
-  nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-
-  nav a {
-    font-size: 18px;
-  }
-
-  main {
-    padding: 30px 15px;
-  }
-
-  .section {
-    padding: 20px;
-  }
-
-  body {
-    font-size: 16px;
-  }
+a:hover {
+  text-decoration: underline;
 }
 
-/* Анимации */
-@keyframes navFadeIn {
-  from {opacity: 0; transform: translateY(-10px);}
-  to {opacity: 1; transform: translateY(0);}
+.note {
+  font-size: 0.8em;
+  color: #aaa;
 }
 
-@keyframes fadeInUp {
-  from {opacity: 0; transform: translateY(10px);}
-  to {opacity: 1; transform: translateY(0);}
+/* Контакты */
+.contact-list {
+  max-width: 600px;
+  margin: 0 auto 2em;
+  padding-left: 1em;
+  border-left: 2px solid #00ffcc;
+}
+
+.contact-list h2 {
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
+
+.contact-list ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.contact-list ul li {
+  margin-bottom: 0.5em;
+  font-size: 1.1em;
+}
+
+.contact-list a {
+  color: #00ffff;
+  font-weight: 600;
 }
